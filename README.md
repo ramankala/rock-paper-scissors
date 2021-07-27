@@ -1,0 +1,1 @@
+Creating a rock paper scissors game where a human can play against a computer. This project is to develop basic Javascript skills.  Will update later to add a GUI to it.
