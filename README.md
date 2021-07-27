@@ -1,1 +1,1 @@
-Creating a rock paper scissors game where a human can play against a computer. This project is to develop basic Javascript skills.  Will update later to add a GUI to it.
+Creating a rock paper scissors game where a human can play against a computer. This project is to develop basic Javascript skills.  Will update later to add a GUI to it.  To access the game, open -> https://ramankala.github.io/rock-paper-scissors/ and click on the console tab in the inspect tools.  THe game output is shown in the console.
