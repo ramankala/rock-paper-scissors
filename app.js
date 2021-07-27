@@ -1,12 +1,3 @@
-//Randomly returns either rock, paper, or scissors
-//use math.random() to get a number between 1-3
-//use if -else statements where if the numbers are 
-//1, return rock, 2, return paper, 3, return scissors
-
-
-//BUG: game is buggy, score doesn't always print after every game**FIXED**
-//Have to account for draws
-//Need to retool the return values
 
 let p = 0;
 let c = 0;
@@ -26,12 +17,6 @@ function computerPlay(){
 
 }
 
-//if player selects rock and computer selections scissors
-//   player wins
-//else if player selects rock and computer selects paper
-//   player loses
-//else its a draw
-//rinse and repeat for all three choices
 
 function playRound(playerSelection, computerSelection){
     player = playerSelection.toLowerCase();
@@ -85,8 +70,6 @@ function playRound(playerSelection, computerSelection){
 
 }
 
-//BUG: one value is being passed for computerSelection**FIXED
-// Thats why either computer wins 5-0 or player wins 5-0
 function game(playerSelection, computerSelection){
 
     playRound(playerSelection, computerSelection);
@@ -95,8 +78,6 @@ function game(playerSelection, computerSelection){
 
 }
 
-
-//console.log(playRound(playerSelection, computerSelection));
 
 for (let i = 1; i <=5; i++){
     const computerSelection = computerPlay();
