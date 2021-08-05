@@ -83,22 +83,23 @@ function playRound(playerSelection, computerSelection){
 
 // const playerSelection = "rock";
 
-const computerSelection = computerPlay();
+//const computerSelection = computerPlay();
 //console.log(playRound(playerSelection, computerSelection));
 
-function game(playerSelection, computerSelection){
+function game(computerSelection){
 
     const container = document.querySelector('#container');
     const content = document.createElement('div');
     content.classList.add('content');
+    const score = document.createElement('div');
+    score.classList.add('score');
 
     const rockBtn = document.querySelector('#rock');
     rockBtn.addEventListener('click', function(){
         result = playRound('rock', computerPlay());
         content.textContent = result;
-
-        console.log("Score:");
-        console.log("Player: " + p + " Computer: " + c);
+        score.textContent = "Score:\
+        Player: " + p + " Computer: " + c;
     });
 
     const scissorsBtn = document.querySelector('#scissors');
@@ -106,8 +107,8 @@ function game(playerSelection, computerSelection){
         result = playRound('scissors', computerPlay());
         content.textContent = result;
 
-        console.log("Score:");
-        console.log("Player: " + p + " Computer: " + c);
+        score.textContent = "Score:\
+        Player: " + p + " Computer: " + c;
     });
 
     const paperBtn = document.querySelector('#paper');
@@ -115,11 +116,12 @@ function game(playerSelection, computerSelection){
         result = playRound('paper', computerPlay());
         content.textContent = result;
 
-        console.log("Score:");
-        console.log("Player: " + p + " Computer: " + c);
+        score.textContent = "Score:\
+        Player: " + p + " Computer: " + c;
 });
 
     container.appendChild(content);
+    container.appendChild(score);
 
     if (p > c){
         console.log("Congratulations! Player has won.");
@@ -137,23 +139,23 @@ function game(playerSelection, computerSelection){
 }
 
 
-// for (let i = 1; i <=5; i++){
-//     const computerSelection = computerPlay();
-//     const playerSelection = prompt("Enter your selection");
-//     if (playerSelection === null && playerSelection === ''){
-//         break;
-//     }
-//     else {
-//         game(playerSelection, computerSelection);
-//     }
-// }
+for (let i = 1; i <=5; i++){
+    const computerSelection = computerPlay();
 
-game();
+    game(computerSelection);
+    // const playerSelection = prompt("Enter your selection");
+    // if (playerSelection === null && playerSelection === ''){
+    //     break;
+    // }
+    // else {
+    //     game(computerSelection);
+    // }
+}
+
+// game();
 
 
 //d. Display the running score, and announce a winner of the game once one player reaches 5 points.
-//create elements/divs on the page for the player and computer names
-//written on the page, and a another div for the count itself
-//count has to update
+//Create a div displaying the result and count **DONE**
 //have to work in a game of 5, most likely using a loop
-//work on displaying the running score first, then make it play a game of 5
+//one click event runs through all iterations of loop, may need to change logic
