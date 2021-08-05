@@ -1,6 +1,8 @@
 
 let p = 0;
 let c = 0;
+let stringText;
+let result;
 
 function computerPlay(){
     compMove = Math.floor(Math.random() * (3 - 1 + 1) + 1);
@@ -26,79 +28,132 @@ function playRound(playerSelection, computerSelection){
 
     if (player === 'rock' && computer === 'scissors'){
         p += 1;
-        return console.log("You Win! Rock beats Scissors.");
+        stringText = "You Win! Rock beats Scissors.";
+        return stringText;
     } 
 
     else if (player === 'rock' && computer === 'paper'){
         c += 1;
-        return console.log('You Lose! Paper beats Rock.');
+        stringText = 'You Lose! Paper beats Rock.'
+        return stringText;
     } 
 
     else if (player === 'rock' && computer === 'rock'){
-        return console.log('Draw!');
+        stringText = 'Draw!';
+        return stringText;
     }
 
     else if (player === 'paper' && computer === 'scissors'){
         c += 1;
-        return console.log("You Lose! Scissors beats Paper.");
+        stringText = "You Lose! Scissors beats Paper."
+        return stringText;
     } 
 
     else if (player === 'paper' && computer === 'paper'){
-        return console.log('Draw!');
+        stringText = 'Draw!';
+        return stringText;
     } 
 
     else if (player === 'paper' && computer === 'rock'){
         p += 1;
-        return console.log('You Win! Paper beats Rock.');
+        stringText = 'You Win! Paper beats Rock.'
+        return stringText;
     }
 
     else if (player === 'scissors' && computer === 'scissors'){
-        return console.log("Draw!");
+        stringText = "Draw!";
+        return stringText;
     } 
 
     else if (player === 'scissors' && computer === 'paper'){
         p += 1;
-        return console.log('You Win! Scissors beats Paper.');
+        stringText = 'You Win! Scissors beats Paper.'
+        return stringText;
     } 
 
     else if (player === 'scissors' && computer === 'rock'){
         c += 1;
-        return console.log('You Lose! Rock beats Scissors.');
+        stringText = 'You Lose! Rock beats Scissors.'
+        return stringText;
     }
 
 
 
 }
+
+// const playerSelection = "rock";
+
+const computerSelection = computerPlay();
+//console.log(playRound(playerSelection, computerSelection));
 
 function game(playerSelection, computerSelection){
 
-    playRound(playerSelection, computerSelection);
-    console.log("Score:");
-    console.log("Player: " + p + " Computer: " + c);
+    const container = document.querySelector('#container');
+    const content = document.createElement('div');
+    content.classList.add('content');
 
-}
+    const rockBtn = document.querySelector('#rock');
+    rockBtn.addEventListener('click', function(){
+        result = playRound('rock', computerPlay());
+        content.textContent = result;
 
+        console.log("Score:");
+        console.log("Player: " + p + " Computer: " + c);
+    });
 
-for (let i = 1; i <=5; i++){
-    const computerSelection = computerPlay();
-    const playerSelection = prompt("Enter your selection");
-    if (playerSelection === null && playerSelection === ''){
-        break;
+    const scissorsBtn = document.querySelector('#scissors');
+    scissorsBtn.addEventListener('click', function(){
+        result = playRound('scissors', computerPlay());
+        content.textContent = result;
+
+        console.log("Score:");
+        console.log("Player: " + p + " Computer: " + c);
+    });
+
+    const paperBtn = document.querySelector('#paper');
+    paperBtn.addEventListener('click', function(){
+        result = playRound('paper', computerPlay());
+        content.textContent = result;
+
+        console.log("Score:");
+        console.log("Player: " + p + " Computer: " + c);
+});
+
+    container.appendChild(content);
+
+    if (p > c){
+        console.log("Congratulations! Player has won.");
+    }
+    
+    else if (p == c){
+        console.log("Draw Game!")
     }
     else {
-        game(playerSelection, computerSelection);
+        console.log("Better luck next time! Computer has won.");
     }
+
+    // playRound(playerSelection, computerSelection);
+
 }
 
 
+// for (let i = 1; i <=5; i++){
+//     const computerSelection = computerPlay();
+//     const playerSelection = prompt("Enter your selection");
+//     if (playerSelection === null && playerSelection === ''){
+//         break;
+//     }
+//     else {
+//         game(playerSelection, computerSelection);
+//     }
+// }
 
-if (p > c){
-    console.log("Congratulations! Player has won.");
-}
+game();
 
-else if (p == c){
-    console.log("Draw Game!")
-}
-else {
-    console.log("Better luck next time! Computer has won.");
-}
+
+//d. Display the running score, and announce a winner of the game once one player reaches 5 points.
+//create elements/divs on the page for the player and computer names
+//written on the page, and a another div for the count itself
+//count has to update
+//have to work in a game of 5, most likely using a loop
+//work on displaying the running score first, then make it play a game of 5
