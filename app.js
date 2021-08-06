@@ -5,7 +5,7 @@ let stringText;
 let result;
 
 function computerPlay(){
-    compMove = Math.floor(Math.random() * (3 - 1 + 1) + 1);
+    compMove = Math.floor(Math.random() * (3) + 1);
 
     if (compMove === 1){
         return "Rock";
@@ -81,81 +81,80 @@ function playRound(playerSelection, computerSelection){
 
 }
 
-// const playerSelection = "rock";
 
-//const computerSelection = computerPlay();
-//console.log(playRound(playerSelection, computerSelection));
 
-function game(computerSelection){
 
-    const container = document.querySelector('#container');
-    const content = document.createElement('div');
-    content.classList.add('content');
-    const score = document.createElement('div');
-    score.classList.add('score');
+function game(){
 
-    const rockBtn = document.querySelector('#rock');
-    rockBtn.addEventListener('click', function(){
-        result = playRound('rock', computerPlay());
-        content.textContent = result;
-        score.textContent = "Score:\
-        Player: " + p + " Computer: " + c;
-    });
 
-    const scissorsBtn = document.querySelector('#scissors');
-    scissorsBtn.addEventListener('click', function(){
-        result = playRound('scissors', computerPlay());
-        content.textContent = result;
 
-        score.textContent = "Score:\
-        Player: " + p + " Computer: " + c;
-    });
+        const container = document.querySelector('#container');
+        const content = document.createElement('div');
+        content.classList.add('content');
+        const score = document.createElement('div');
+        score.classList.add('score');
+        const winner = document.createElement('div');
+        winner.classList.add('winner');
 
-    const paperBtn = document.querySelector('#paper');
-    paperBtn.addEventListener('click', function(){
-        result = playRound('paper', computerPlay());
-        content.textContent = result;
+        const rockBtn = document.querySelector('#rock');
+        rockBtn.addEventListener('click', function(){
+            if (!(p == 5 || c == 5)){
+                result = playRound('rock', computerPlay());
+                content.textContent = result;
+                score.textContent = "Score:\
+                Player: " + p + " Computer: " + c;
+            }
+            if (p == 5){
+                winner.textContent = "Congratulations! Player has won.";
+            }
 
-        score.textContent = "Score:\
-        Player: " + p + " Computer: " + c;
-});
+            else if (c == 5){
+                winner.textContent = "Better luck next time! Computer has won.";
+            }
 
-    container.appendChild(content);
-    container.appendChild(score);
-
-    if (p > c){
-        console.log("Congratulations! Player has won.");
-    }
+        });
     
-    else if (p == c){
-        console.log("Draw Game!")
+        const scissorsBtn = document.querySelector('#scissors');
+        scissorsBtn.addEventListener('click', function(){
+            if (!(p == 5 || c == 5)){
+                result = playRound('scissors', computerPlay());
+                content.textContent = result;
+                score.textContent = "Score:\
+                Player: " + p + " Computer: " + c;
+            }
+            if (p == 5){
+                winner.textContent = "Congratulations! Player has won.";
+            }
+
+            else if (c == 5){
+                winner.textContent = "Better luck next time! Computer has won.";
+            }
+        });
+    
+        const paperBtn = document.querySelector('#paper');
+        paperBtn.addEventListener('click', function(){
+            if (!(p == 5 || c == 5)){
+                result = playRound('paper', computerPlay());
+                content.textContent = result;
+                score.textContent = "Score:\
+                Player: " + p + " Computer: " + c;
+            }
+            if (p == 5){
+                winner.textContent = "Congratulations! Player has won.";
+            }
+
+            else if (c == 5){
+                winner.textContent = "Better luck next time! Computer has won.";
+            }
+    });
+    
+        container.appendChild(content);
+        container.appendChild(score);
+        container.appendChild(winner);
+
     }
-    else {
-        console.log("Better luck next time! Computer has won.");
-    }
-
-    // playRound(playerSelection, computerSelection);
-
-}
 
 
-for (let i = 1; i <=5; i++){
-    const computerSelection = computerPlay();
 
-    game(computerSelection);
-    // const playerSelection = prompt("Enter your selection");
-    // if (playerSelection === null && playerSelection === ''){
-    //     break;
-    // }
-    // else {
-    //     game(computerSelection);
-    // }
-}
+game();
 
-// game();
-
-
-//d. Display the running score, and announce a winner of the game once one player reaches 5 points.
-//Create a div displaying the result and count **DONE**
-//have to work in a game of 5, most likely using a loop
-//one click event runs through all iterations of loop, may need to change logic
