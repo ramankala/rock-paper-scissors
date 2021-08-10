@@ -1,0 +1,59 @@
+
+body{
+    background-color: magenta;
+}
+
+.selectionButtons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+
+}
+
+#scissors{
+    margin-bottom: 500px;
+    background-image: url(https://coloringpage.eu/wp-content/uploads/2019/08/scissors-school-supplies.jpg);
+    background-size:150px, 150px;
+    height: 210px;
+    width: 150px;
+
+}
+
+#rock{
+    margin-right: 50px;
+    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWOTNiwOmREkStwAlbIvqxz1Sc-LQRNmTqPQ&usqp=CAU);
+    height:205px;
+    width: 250px;
+}
+#paper{
+    margin-left: 40px;
+    background-image: url(https://previews.123rf.com/images/cthoman/cthoman1507/cthoman150700695/41888384-a-happy-cartoon-piece-of-paper-waving-and-smiling-.jpg);
+    background-size: 150px, 150px;
+    height: 210px;
+    width: 160px;
+}
+
+#resultContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+}
+
+#scoreContainer{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    font-size: 25px;
+    white-space:pre;
+}
+
+#winnerContainer{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    font-weight: bold;
+    font-size:50px;
+    color:gold;
+}

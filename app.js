@@ -88,11 +88,16 @@ function game(){
 
 
 
-        const container = document.querySelector('#container');
+        const container = document.querySelector('#resultContainer');
+        const scoreContainer = document.querySelector('#scoreContainer');
+        const winnerContainer = document.querySelector('#winnerContainer');
+
         const content = document.createElement('div');
         content.classList.add('content');
+
         const score = document.createElement('div');
         score.classList.add('score');
+
         const winner = document.createElement('div');
         winner.classList.add('winner');
 
@@ -101,8 +106,7 @@ function game(){
             if (!(p == 5 || c == 5)){
                 result = playRound('rock', computerPlay());
                 content.textContent = result;
-                score.textContent = "Score:\
-                Player: " + p + " Computer: " + c;
+                score.textContent = "              Score:\r\n Player: " + p + " Computer: " + c;
             }
             if (p == 5){
                 winner.textContent = "Congratulations! Player has won.";
@@ -119,8 +123,7 @@ function game(){
             if (!(p == 5 || c == 5)){
                 result = playRound('scissors', computerPlay());
                 content.textContent = result;
-                score.textContent = "Score:\
-                Player: " + p + " Computer: " + c;
+                score.textContent = "              Score:\r\n Player: " + p + " Computer: " + c;
             }
             if (p == 5){
                 winner.textContent = "Congratulations! Player has won.";
@@ -136,8 +139,7 @@ function game(){
             if (!(p == 5 || c == 5)){
                 result = playRound('paper', computerPlay());
                 content.textContent = result;
-                score.textContent = "Score:\
-                Player: " + p + " Computer: " + c;
+                score.textContent = "              Score:\r\n Player: " + p + " Computer: " + c;
             }
             if (p == 5){
                 winner.textContent = "Congratulations! Player has won.";
@@ -147,10 +149,9 @@ function game(){
                 winner.textContent = "Better luck next time! Computer has won.";
             }
     });
-    
         container.appendChild(content);
-        container.appendChild(score);
-        container.appendChild(winner);
+        scoreContainer.appendChild(score);
+        winnerContainer.appendChild(winner);
 
     }
 
