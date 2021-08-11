@@ -81,6 +81,14 @@ function playRound(playerSelection, computerSelection){
 
 }
 
+function resetPage(){
+
+    p = 0;
+    c = 0;
+
+    return ;
+}
+
 
 
 
@@ -149,6 +157,15 @@ function game(){
                 winner.textContent = "Better luck next time! Computer has won.";
             }
     });
+
+        const resetBtn = document.querySelector('#reset');
+        resetBtn.addEventListener('click', function(){
+            resetPage();
+            content.textContent="";
+            score.textContent = "              Score:\r\n Player: " + p + " Computer: " + c;
+        });
+
+
         container.appendChild(content);
         scoreContainer.appendChild(score);
         winnerContainer.appendChild(winner);

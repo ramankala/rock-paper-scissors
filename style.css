@@ -33,6 +33,14 @@ body{
     height: 210px;
     width: 160px;
 }
+#reset{
+    margin-left: 200px;
+    margin-bottom: 200px;
+    height: 60px;
+    width: 100px;
+    background-color: black;
+    color: white;
+}
 
 #resultContainer{
     display: flex;
